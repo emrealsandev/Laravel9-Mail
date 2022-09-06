@@ -56,8 +56,8 @@
                           })
                           .then(result => {
                             this.formData = {
-                              subject: '',
                               email: '',
+                              subject: '',
                               message: '',
                             };
                             this.successMessage = 'Mail gönderme işleminiz başarılı. Teşekkürler -emrealsandev';
@@ -67,13 +67,12 @@
                             if (response.status === 422) {
                               this.errors = res.errors;
                             }
-                            console.log(res);
                           })
                       }
 
                 }">
                 <template x-if="successMessage">
-                    <div x-text="successMessage" class="py-4 px-6 bg-green-600 text-grey-100 mb-4"></div>
+                    <div x-text="successMessage" class="py-4 text-white rounded px-6 bg-green-600 text-grey-100 mb-4"></div>
                 </template>
                 @csrf
                     <div>

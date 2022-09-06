@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -14,6 +16,8 @@ class ContactController extends Controller
         ]);
 
         // Send Email
+        Mail::to('emrealsandev@gmail.com')
+        ->send(new ContactMail($validated['email'],$validated['subject'],$validated['message']));
         return ['success' => true];
     }
 }
